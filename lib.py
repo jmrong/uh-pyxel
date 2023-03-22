@@ -3,11 +3,12 @@ from math import floor
 
 
 class Tilemap:
-    def __init__(self, relative=True, size=8*8, colkey=0):
+    def __init__(self, relative=True, size=8, colkey=0):
         self.x = 0
         self.y = 0
         self.relative = relative
         self.size = size
+        self.ss = size ** 2
         self.colkey = colkey
 
     def get(self, tm, x, y):
@@ -18,7 +19,7 @@ class Tilemap:
                                data)
 
     def draw(self, tm, colkey=0):
-        bltm(0, 0, tm, self.x * self.size, self.y * self.size, self.size, self.size, self.colkey)
+        bltm(0, 0, tm, self.x * self.ss, self.y * self.ss, self.ss, self.ss, self.colkey)
 
 
 def sprite(x, y, n, m=0, size=8, colkey=0):
